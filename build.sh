@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+read -p "PORT :"
 docker ps -a
 
 if [ "$(docker ps -a)" ]; then
@@ -12,7 +13,7 @@ else
 fi
 
 docker build -t viswanathan1407/flask-app:v2 .
-docker run -itd -p 5000:5000 viswanathan1407/flask-app:v2
+docker run -itd -p $PORT:5000 viswanathan1407/flask-app:v2
 
 echo  "the build is successful"
 
